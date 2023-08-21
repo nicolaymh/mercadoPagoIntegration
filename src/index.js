@@ -1,6 +1,12 @@
 import express from "express";
+import morgan from "morgan";
+import paymentRoutes from "./routes/pyament.routes.js";
+import { PORT } from "./config.js";
 
 const app = express();
 
-app.listen(3000);
-console.log("Server on port", 3000);
+app.use(morgan("dev"));
+app.use(paymentRoutes);
+
+app.listen(PORT);
+console.log("Server on port", PORT);
